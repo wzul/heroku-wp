@@ -1,14 +1,14 @@
-Heroku WP
+Blog Wanzul
 =========
 
-This is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/) with a focus on speed and security while using the official Heroku stack.
+This repository is created for blog-wanzul.herokuapp.com.
 
-The repository is built on top of the standard Heroku PHP buildpack so you don't need to trust some sketchy 3rd party s3 bucket.
+It uses:
 * [NGINX](http://nginx.org) - Fast scalable webserver.
 * [PHP 7](http://php.net) - Latest and greatest with performance on par with HHVM.
 * [Composer](https://getcomposer.org) - A dependency manager to make installing and managing plugins easier.
 
-Heroku WP uses the following addons:
+This blog is powered with Heroku Addons:
 * [MariaDB](https://mariadb.org) / [jawsdb-maria](https://elements.heroku.com/addons/jawsdb-maria) - A binary compatible MySQL replacement with even better performance.
 * [Redis](http://redis.io) / [heroku-redis](https://elements.heroku.com/addons/heroku-redis) - An in-memory datastore for fast persistant object cache.
 * [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.

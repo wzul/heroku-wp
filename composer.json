@@ -1,13 +1,13 @@
 {
-    "name": "xyu/heroku-wp",
+    "name": "wzul/blog-wanzul",
     "description": "A template for installing and running WordPress on Heroku",
-    "homepage": "https://github.com/xyu/heroku-wp",
+    "homepage": "https://github.com/wzul/blog-wanzul",
     "license": "MIT",
     "authors": [
         {
-            "name": "Xiao Yu",
-            "email": "me@xyu.io",
-            "homepage": "http://xyu.io",
+            "name": "Wan Zulkarnain",
+            "email": "wanzulkarnain69@gmail.com",
+            "homepage": "http://wanzul.net",
             "role": "Developer"
         }
     ],
@@ -27,7 +27,11 @@
         "wpackagist-plugin/sendgrid-email-delivery-simplified": "~1",
 
         "predis/predis": "~1.0",
-        "wp-cli/wp-cli": "^1.0"
+        "wp-cli/wp-cli": "^1.0",
+
+        "wpackagist-plugin/billplz-for-woocommerce": "dev-trunk",
+        "wzul/billplz-for-givewp" : "*",
+        "wanzulkarnain69/advance-billplz-for-wp-charitable" : "*"
     },
     "suggest": {
         "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
@@ -38,10 +42,10 @@
             "type": "package",
             "package": {
                 "name": "WordPress/WordPress",
-                "version": "4.9.1",
+                "version": "4.9.2",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/WordPress/WordPress/archive/4.9.1.zip"
+                    "url": "https://github.com/WordPress/WordPress/archive/4.9.2.zip"
                 }
             }
         },
@@ -56,6 +60,14 @@
         {
             "type": "composer",
             "url": "https://wp-cli.org/package-index"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/wzul/Billplz-for-GiveWP.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://gitlab.com/wanzulkarnain69/advance-billplz-for-wp-charitable.git"
         }
     ],
     "extra": {
@@ -70,8 +82,7 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "./support/app_slug_compile.sh"
-        ]
+        "post-install-cmd": [ "chmod +x ./support/app_slug_compile.sh && ./support/app_slug_compile.sh" ]
     }
+
 }
