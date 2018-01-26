@@ -123,7 +123,7 @@ true && \
 	composer update --ignore-platform-reqs && \
 	git add composer.lock && \
 	git commit -m "Commit for first deploy '$1'" && \
-	git push heroku "nginx-php7"
+	git push heroku "nginx-php7:master"
 
 EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
