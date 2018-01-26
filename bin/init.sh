@@ -82,8 +82,6 @@ type dd >/dev/null
 
 echo "Setting WP salts..."
 
-heroku config:set --app "$1" $( curl -s 'https://api.wordpress.org/secret-key/1.1/salt/' | sed -E -e "s/^define\('(.+)', *'(.+)'\);$/WP_\1=\2/" -e 's/ //g' )
-
 heroku config:set \
 	--app "$1" \
 	WP_AUTH_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1)  \
