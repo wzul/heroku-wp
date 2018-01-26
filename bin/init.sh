@@ -78,9 +78,7 @@ heroku config:set --app "$1" \
 	WP_CACHE="FALSE" \
 	WP_DEBUG="TRUE" \
 	WP_POST_REVISIONS="3" \
-	WP_CACHE="FALSE" \
-	WP_HOME="$(heroku info -s | grep web_url | cut -d= -f2)" \
-	WP_SITEURL="$(heroku info -s | grep web_url | cut -d= -f2)" 
+	WP_CACHE="FALSE"
 
 # Set WP salts
 type dd >/dev/null
@@ -139,5 +137,10 @@ fi
 
 heroku addons --app "$1"
 heroku redis --app "$1"
+
+
+heroku config:set --app "$1" \
+	WP_HOME="$(heroku info -s | grep web_url | cut -d= -f2)" \
+	WP_SITEURL="$(heroku info -s | grep web_url | cut -d= -f2)" 
 
 exit "$EXIT_CODE"
