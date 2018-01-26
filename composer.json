@@ -30,8 +30,7 @@
         "wp-cli/wp-cli": "^1.0",
 
         "wpackagist-plugin/billplz-for-woocommerce": "dev-trunk",
-        "wzul/billplz-for-givewp" : "*",
-        "wanzulkarnain69/advance-billplz-for-wp-charitable" : "*"
+        "wzul/billplz-for-givewp" : "*"
     },
     "suggest": {
         "wpackagist-plugin/cloudflare-cache-purge": "Purges cached pages on CF.",
@@ -64,10 +63,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/wzul/Billplz-for-GiveWP.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://gitlab.com/wanzulkarnain69/advance-billplz-for-wp-charitable.git"
         }
     ],
     "extra": {
