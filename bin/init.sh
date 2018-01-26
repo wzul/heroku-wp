@@ -129,7 +129,7 @@ EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
 	printf >&2 "\n\nDeploy failed for '$1'.\n\n"
 else
-	printf "\n\nNew Heroku WP app '$1' created and deployed via:\n\$ git push heroku $1:master\n\n"
+	printf "\n\nNew Heroku WP app '$1' created and deployed via:\n\$ git push heroku nginx-php7:master\n\n"
 fi
 
 heroku addons --app "$1"
