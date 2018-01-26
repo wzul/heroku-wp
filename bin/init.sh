@@ -91,7 +91,7 @@ if [ "$?" -ne "0" ]; then
 else
 	echo "Setting WP salts with /dev/random"
 
-	heroku config:set --app "$1" WP_AUTH_KEY="$(         dd 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" 
+	heroku config:set --app "$1" WP_AUTH_KEY="$(         echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" 
 	heroku config:set --app "$1" WP_SECURE_AUTH_KEY="$(  echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" 
 	heroku config:set --app "$1" WP_LOGGED_IN_KEY="$(    echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" 
 	heroku config:set --app "$1" WP_NONCE_KEY="$(        echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" 
