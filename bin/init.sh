@@ -122,7 +122,7 @@ heroku git:remote \
 # Make initial commit and deploy
 true && \
 	cd .. && \
-	composer update nothing --ignore-platform-reqs -vvv && \
+	composer update nothing --ignore-platform-reqs && \
 	git add composer.lock && \
 	git commit -m "Commit for first deploy '$1'" && \
 	git push heroku "nginx-php7"
