@@ -79,29 +79,26 @@ heroku config:set \
 
 # Set WP salts
 type dd >/dev/null
-if [ "$?" -ne "0" ]; then
-	echo "Setting WP salts with WordPress.org"
 
-	heroku config:set \
-		--app "$1" \
-		$( \
-			curl -s 'https://api.wordpress.org/secret-key/1.1/salt/' | \
-			sed -E -e "s/^define\('(.+)', *'(.+)'\);$/WP_\1=\2/" -e 's/ //g' \
-		)
-else
-	echo "Setting WP salts with /dev/random"
-	
-	heroku config:set \
-		--app "$1" \
-		WP_AUTH_KEY="$(         echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_SECURE_AUTH_KEY="$(  echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_LOGGED_IN_KEY="$(    echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_NONCE_KEY="$(        echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_AUTH_SALT="$(        echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_SECURE_AUTH_SALT="$( echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_LOGGED_IN_SALT="$(   echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )" \
-		WP_NONCE_SALT="$(       echo 'if=/dev/random' 'bs=1' 'count=96' 2>/dev/null | base64 )"
-fi
+echo "Setting WP salts..."
+
+heroku config:set --app "$1" $( curl -s 'https://api.wordpress.org/secret-key/1.1/salt/' | sed -E -e "s/^define\('(.+)', *'(.+)'\);$/WP_\1=\2/" -e 's/ //g' )
+
+heroku config:set \
+	--app "$1" \
+	WP_AUTH_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1)  \
+	WP_SECURE_AUTH_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
+	WP_LOGGED_IN_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
+	WP_NONCE_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
+	WP_AUTH_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
+	WP_SECURE_AUTH_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
+	WP_LOGGED_IN_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
+	WP_NONCE_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1)
+
+echo "Incase WP Salt could not be setup due to curl error or does not exists. Please set it manually."
+echo "You may refer to http://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/13_2/messagingservice/files/installing_curl_command_line_tool_on_windows.html to install curl on windows"
+echo "Get Salt here: https://api.wordpress.org/secret-key/1.1/salt/"
+
 
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
@@ -131,7 +128,7 @@ true && \
 	composer update nothing --ignore-platform-reqs -vvv && \
 	git add composer.lock && \
 	git commit -m "Commit for first deploy '$1'" && \
-	git push heroku nginx-php7
+	git push heroku "nginx-php7"
 
 EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
