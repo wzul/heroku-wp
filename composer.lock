@@ -902,16 +902,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473"
+                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9b355654ea99460397b89c132b5c1087b6bf4473",
-                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/d15f59a67ff805a44c50ea0516d2341740f81a38",
+                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2018-01-03T12:13:57+00:00"
+            "time": "2018-01-24T12:46:19+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -1647,35 +1647,6 @@
             "time": "2018-01-03T07:37:34+00:00"
         },
         {
-            "name": "wanzulkarnain69/advance-billplz-for-wp-charitable",
-            "version": "3.0",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:wanzulkarnain69/advance-billplz-for-wp-charitable.git",
-                "reference": "1e46f3bd53c398b47066f1fcd196eabc0b7b85d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wanzulkarnain69%2Fadvance-billplz-for-wp-charitable/repository/archive.zip?sha=1e46f3bd53c398b47066f1fcd196eabc0b7b85d9",
-                "reference": "1e46f3bd53c398b47066f1fcd196eabc0b7b85d9",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "An advance Billplz plugin for integration with WP Chartiable.",
-            "homepage": "https://gitlab.com/wanzulkarnain69/advance-billplz-for-wp-charitable",
-            "support": {
-                "issues": "https://gitlab.com/wanzulkarnain69/advance-billplz-for-wp-charitable/issues",
-                "source": "https://gitlab.com/wanzulkarnain69/advance-billplz-for-wp-charitable"
-            },
-            "time": "2018-01-21T23:36:24+00:00"
-        },
-        {
             "name": "wp-cli/autoload-splitter",
             "version": "v0.1.5",
             "source": {
@@ -1783,21 +1754,21 @@
         },
         {
             "name": "wp-cli/checksum-command",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/checksum-command.git",
-                "reference": "a2719a5ba84ffd7d47511967433da7211e0da55a"
+                "reference": "c96d43de04e32d84a20e75a34ac80ccf2e125a94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/checksum-command/zipball/a2719a5ba84ffd7d47511967433da7211e0da55a",
-                "reference": "a2719a5ba84ffd7d47511967433da7211e0da55a",
+                "url": "https://api.github.com/repos/wp-cli/checksum-command/zipball/c96d43de04e32d84a20e75a34ac80ccf2e125a94",
+                "reference": "c96d43de04e32d84a20e75a34ac80ccf2e125a94",
                 "shasum": ""
             },
             "require-dev": {
                 "behat/behat": "~2.5",
-                "wp-cli/wp-cli": "*"
+                "wp-cli/wp-cli": "^1.5"
             },
             "type": "wp-cli-package",
             "extra": {
@@ -1806,7 +1777,8 @@
                 },
                 "bundled": true,
                 "commands": [
-                    "checksum core"
+                    "checksum core",
+                    "checksum plugin"
                 ]
             },
             "autoload": {
@@ -1830,7 +1802,7 @@
             ],
             "description": "Verifies file integrity by comparing to published checksums.",
             "homepage": "https://github.com/wp-cli/checksum-command",
-            "time": "2017-12-08T15:12:46+00:00"
+            "time": "2018-01-22T21:23:15+00:00"
         },
         {
             "name": "wp-cli/config-command",
