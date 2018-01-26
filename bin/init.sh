@@ -75,7 +75,7 @@ heroku addons:create \
 
 heroku config:set \
 	--app "$1" \
-	NEW_RELIC_APP_NAME="Heroku WP"
+	NEW_RELIC_APP_NAME="HerokuWP"
 
 # Set WP salts
 type dd >/dev/null
