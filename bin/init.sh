@@ -129,7 +129,7 @@ heroku git:remote \
 true && \
 	cd .. && \
 	git checkout -b "$1" && \
-	bin/composer update --ignore-platform-reqs && \
+	composer update --ignore-platform-reqs && \
 	git add composer.lock && \
 	git commit -m "Initial commit for '$1'" && \
 	git push heroku "$1:master"
