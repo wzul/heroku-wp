@@ -74,8 +74,14 @@ heroku addons:create \
 	newrelic:wayne
 
 heroku config:set \
-	--app "$1" \
-	NEW_RELIC_APP_NAME="HerokuWP"
+	-app "$1" \
+	NEW_RELIC_APP_NAME="HerokuWP" \
+	WP_CACHE="FALSE" \
+	WP_DEBUG="TRUE" \
+	WP_POST_REVISIONS="3" \
+	WP_CACHE="FALSE"
+	WP_HOME="https://$1.herokuapp.com" \
+	WP_SITEURL="https://$1.herokuapp.com" 
 
 # Set WP salts
 type dd >/dev/null
