@@ -75,10 +75,9 @@ heroku addons:create \
 
 heroku config:set --app "$1" \
 	NEW_RELIC_APP_NAME="HerokuWP" \
-	WP_CACHE="FALSE" \
+	WP_CACHE="TRUE" \
 	WP_DEBUG="TRUE" \
-	WP_POST_REVISIONS="3" \
-	WP_CACHE="FALSE"
+	WP_POST_REVISIONS="3"
 
 # Set WP salts
 type dd >/dev/null
