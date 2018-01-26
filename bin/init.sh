@@ -95,10 +95,7 @@ heroku config:set \
 	WP_LOGGED_IN_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1) \
 	WP_NONCE_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1)
 
-echo "Incase WP Salt could not be setup due to curl error or does not exists. Please set it manually."
-echo "You may refer to http://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/13_2/messagingservice/files/installing_curl_command_line_tool_on_windows.html to install curl on windows"
 echo "Get Salt here: https://api.wordpress.org/secret-key/1.1/salt/"
-
 
 # Configure Redis Cache
 printf "Waiting for Heroku Redis to provision... "
