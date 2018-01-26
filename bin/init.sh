@@ -128,11 +128,10 @@ heroku git:remote \
 # Make initial commit and deploy
 true && \
 	cd .. && \
-	git checkout -b "$1" && \
 	composer update --ignore-platform-reqs -vvv && \
 	git add composer.lock && \
-	git commit -m "Initial commit for '$1'" && \
-	git push heroku "$1:master"
+	git commit -m "Commit for first deploy '$1'" && \
+	git push heroku nginx-php7
 
 EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
