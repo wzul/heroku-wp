@@ -56,8 +56,8 @@ heroku addons:create \
 # Add MySQL DB
 heroku addons:create \
 	--app "$1" \
-	--as "WP_DB" \
-	jawsdb-maria:kitefin
+	--as "CLEARDB_DATABASE" \
+	cleardb:ignite
 
 heroku config:set \
 	--app "$1" \
