@@ -1,15 +1,15 @@
-Blog Wanzul
+Heroku WP
 =========
 
-This repository is created for blog-wanzul.herokuapp.com.
+This is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/) with a focus on speed and security while using the official Heroku stack.
 
-It uses:
+The repository is built on top of the standard Heroku PHP buildpack so you don't need to trust some sketchy 3rd party s3 bucket.
 * [NGINX](http://nginx.org) - Fast scalable webserver.
 * [PHP 7](http://php.net) - Latest and greatest with performance on par with HHVM.
 * [Composer](https://getcomposer.org) - A dependency manager to make installing and managing plugins easier.
 
-This blog is powered with Heroku Addons:
-* [MariaDB](https://mariadb.org) / [jawsdb-maria](https://elements.heroku.com/addons/jawsdb-maria) - A binary compatible MySQL replacement with even better performance.
+Heroku WP uses the following addons:
+* [MySQL](http://www.mysql.com) / [cleardb-mysql](https://elements.heroku.com/addons/cleardb) - The high speed database for your MySQL powered applications.
 * [Redis](http://redis.io) / [heroku-redis](https://elements.heroku.com/addons/heroku-redis) - An in-memory datastore for fast persistant object cache.
 * [SendGrid](https://sendgrid.com) / [sendgrid](https://elements.heroku.com/addons/sendgrid) - SaaS email delivery service.
 * [New Relic](https://newrelic.com) / [newrelic](https://elements.heroku.com/addons/newrelic) - SaaS application performance monitoring.
@@ -23,11 +23,13 @@ In additon repository comes bundled with the following tools and must use plugin
 * [Redis Object Cache](http://wordpress.org/plugins/redis-cache) - For using Redis as a persistant, shared, object cache.
 * [Secure DB Connection](http://wordpress.org/plugins/secure-db-connection) - For ensuring connections to the database are secure and encrypted.
 
-Finally these plugins are pre-installed as they are highly recommended but not activated.
+Finally these plugins are pre-installed but not activated.
 * [Authy Two Factor Auth](https://www.authy.com/products/wordpress)
 * [Jetpack](http://jetpack.me/)
 * [S3 Uploads](https://github.com/humanmade/S3-Uploads)
 * [SendGrid](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)
+* [Billplz for WooCommerce](https://wordpress.org/plugins/billplz-for-woocommerce/)
+* [Billplz for GiveWP](https://github.com/wzul/Billplz-for-GiveWP)
 
 WordPress and most included plugins are installed by Composer on build. To add new plugins or upgrade versions of plugins simply update the `composer.json` file and then generate the `composer.lock` file with the following command locally:
 
@@ -44,7 +46,7 @@ Make sure you have the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed
 
 Clone the repository from Github
 
-    $ git clone https://github.com/xyu/heroku-wp.git
+    $ git clone https://github.com/wzul/heroku-wp.git
 
 Run the included init script
 
