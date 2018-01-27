@@ -26,6 +26,8 @@ fi
 
 # Download and install
 echo "Downloading Composer Installer..."
+echo "If you are running Microsoft Windows 10 released in 2017, you need to install curl by yourself"
+echo "http://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/13_2/messagingservice/files/installing_curl_command_line_tool_on_windows.html"
 curl https://getcomposer.org/installer > composer-setup.php
 
 # Verify Sig
