@@ -13,6 +13,7 @@
     ],
     "require": {
         "ext-gd": "*",
+        "ext-mbstring": "*",
         "php": "~7.1.0",
 
         "WordPress/WordPress": "*",
