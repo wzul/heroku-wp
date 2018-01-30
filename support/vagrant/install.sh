@@ -19,6 +19,9 @@ cd /app
 
 add-apt-repository ppa:nginx/stable -y
 
+apt-get install -y python-software-properties
+add-apt-repository -y ppa:ondrej/php
+
 #
 # Update Package Manager
 #
@@ -29,9 +32,10 @@ apt-get update -y
 # Install PHP
 #
 
-apt-get install -y php7.0
-apt-get install -y php7.0-gd
-apt-get install -y php7.0-mysql
+apt-get install -y php7.1
+apt-get install -y php7.1-gd
+apt-get install -y php7.1-mysql
+apt-get install -y php7.1-mbstring
 
 #
 # Install MySQL
@@ -99,7 +103,7 @@ sudo -H -u vagrant composer --working-dir=/app install
 # Restart Services
 #
 
-/etc/init.d/php7.0-fpm restart
+/etc/init.d/php7.1-fpm restart
 /etc/init.d/nginx restart
 
 #
