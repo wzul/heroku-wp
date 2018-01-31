@@ -79,7 +79,13 @@ heroku config:set --app "$1" \
 	WP_DEBUG="FALSE" \
 	WP_POST_REVISIONS="3" \
 	WP_HOME="$(heroku info --app "$1" -s | grep web_url | cut -d= -f2)" \
-	WP_SITEURL="$(heroku info --app "$1" -s | grep web_url | cut -d= -f2)" 
+	WP_SITEURL="$(heroku info --app "$1" -s | grep web_url | cut -d= -f2)" \
+	DISABLE_WP_CRON="FALSE"
+
+# You may Disable WP Cron:
+# 1. Set DISABLE_WP_CRON to TRUE
+# 2. Add Heroku Scheduler Addon 
+# 3. Set the following: $ wp cron event run --path="public.built" --due-now 
 
 # Set WP salts
 type dd >/dev/null
