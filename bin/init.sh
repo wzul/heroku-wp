@@ -24,10 +24,10 @@ then
 fi
 
 # Check to see if Composer is installed if not install it
-type ./composer >/dev/null 2>&1 || ./init-composer.sh || {
-	echo >&2 "Composer does not exist and could not be installed."
-	exit 1
-}
+#type ./composer >/dev/null 2>&1 || ./init-composer.sh || {
+#	echo >&2 "Composer does not exist and could not be installed."
+#	exit 1
+#}
 
 # Check to see if Heroku Toolbelt is installed
 type heroku >/dev/null 2>&1 || {
@@ -124,10 +124,10 @@ heroku git:remote \
 # Make initial commit and deploy
 true && \
 	cd .. && \
-	bin/composer update --ignore-platform-reqs && \
-	git add composer.lock && \
-	git commit -m "Commit for first deploy '$1'" && \
-	git push heroku "nginx-php7:master"
+	# bin/composer update --ignore-platform-reqs && \
+	# git add composer.lock && \
+	# git commit -m "Commit for first deploy '$1'" && \
+	git push heroku $( git rev-parse --abbrev-ref HEAD):master
 
 EXIT_CODE="$?"
 if [ "$EXIT_CODE" -ne "0" ]; then
