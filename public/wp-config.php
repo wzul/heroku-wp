@@ -17,6 +17,10 @@
 // Setup autoload
 require '/app/vendor/autoload.php';
 
+// Set PHP Error Log
+@ini_set('log_errors',$_ENV['PHP_LOG_ERRORS']); // enable or disable php error logging (use 'On' or 'Off')
+@ini_set('display_errors',$_ENV['PHP_DISPLAY_ERRORS']); // enable or disable public display of errors (use 'On' or 'Off')
+
 // WordPress Post Revision
 define('WP_POST_REVISIONS', $_ENV['WP_POST_REVISIONS'] === '0' ? 0 : $_ENV['WP_POST_REVISIONS']);
 
