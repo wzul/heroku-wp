@@ -13,4 +13,4 @@ Based on Eric Mann's and Erick Hitter's Redis Object Cache:
 https://github.com/ericmann/Redis-Object-Cache
 */
 
-//require 'mu-plugins/redis-cache/includes/object-cache.php';
+require 'mu-plugins/redis-cache/includes/object-cache.php';

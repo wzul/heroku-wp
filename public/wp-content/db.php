@@ -9,4 +9,4 @@
  * Version: 1.1.4
  */
 
-//require 'mu-plugins/secure-db-connection/lib/db.php';
+require 'mu-plugins/secure-db-connection/lib/db.php';
