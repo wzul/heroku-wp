@@ -8,4 +8,4 @@
  * Text Domain: secure-db-connection
  * Version: 1.1.4
  */
-require 'secure-db-connection/secure-db-connection.php';
+//require 'secure-db-connection/secure-db-connection.php';
