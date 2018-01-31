@@ -82,7 +82,8 @@ heroku config:set --app "$1" \
 	WP_SITEURL="$(heroku info --app "$1" -s | grep web_url | cut -d= -f2)" \
 	DISABLE_WP_CRON="FALSE" \
 	PHP_LOG_ERRORS="On" \
-	PHP_DISPLAY_ERRORS="Off"
+	PHP_DISPLAY_ERRORS="Off" \
+	PHP_ERROR_REPORTING="0"
 
 # You may Disable WP Cron:
 # 1. Set DISABLE_WP_CRON to TRUE
