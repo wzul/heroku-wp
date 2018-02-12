@@ -18,9 +18,9 @@
 require '/app/vendor/autoload.php';
 
 // Set PHP Error Settings
-ini_set('log_errors',$_ENV['PHP_LOG_ERRORS']); // enable or disable php error logging (use 'On' or 'Off')
-ini_set('display_errors',$_ENV['PHP_DISPLAY_ERRORS']); // enable or disable public display of errors (use 'On' or 'Off')
-if ($_ENV['PHP_ERROR_REPORTING'] === 'E_ALL'){
+ini_set('log_errors', $_ENV['PHP_LOG_ERRORS']); // enable or disable php error logging (use 'On' or 'Off')
+ini_set('display_errors', $_ENV['PHP_DISPLAY_ERRORS']); // enable or disable public display of errors (use 'On' or 'Off')
+if ($_ENV['PHP_ERROR_REPORTING'] === 'E_ALL') {
     error_reporting(E_ALL);
 } else {
     error_reporting(0);
@@ -38,8 +38,16 @@ define('DISALLOW_FILE_EDIT', true);
 define('DISALLOW_FILE_MODS', true);
 
 // Make sure we admin over SSL
-define('FORCE_SSL_LOGIN', true);
-define('FORCE_SSL_ADMIN', true);
+if ($_ENV['WP_FORCE_SSL_LOGIN'] === 'TRUE') {
+    define('FORCE_SSL_LOGIN', true);
+} else {
+    define('FORCE_SSL_LOGIN', false);
+}
+if ($_ENV['WP_FORCE_SSL_ADMIN'] === 'TRUE') {
+    define('FORCE_SSL_ADMIN', true);
+} else {
+    define('FORCE_SSL_ADMIN', false);
+}
 
 // HTTPS port is always 80 because SSL is terminated at Heroku router / CloudFlare
 define('JETPACK_SIGNATURE__HTTPS_PORT', 80);

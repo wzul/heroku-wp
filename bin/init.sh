@@ -83,7 +83,9 @@ heroku config:set --app "$1" \
 	DISABLE_WP_CRON="FALSE" \
 	PHP_LOG_ERRORS="On" \
 	PHP_DISPLAY_ERRORS="Off" \
-	PHP_ERROR_REPORTING="0"
+	PHP_ERROR_REPORTING="0" \
+	WP_FORCE_SSL_LOGIN="TRUE" \
+	WP_FORCE_SSL_ADMIN="TRUE"
 
 # You may Disable WP Cron:
 # 1. Set DISABLE_WP_CRON to TRUE
